@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>FreightFox</title>
+<style>
+	table, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	td{
+		padding: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		text-align: center;
+	}
+	.row1{
+		padding: 25px;
+		text-align: left;
+	}
+	.center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+</head>
+<body>
+	<table class="center">
+		<tr>			
+			<td class="row1" colspan="2" th:utext="${sellerData}"></td>
+			<td class="row1" colspan="2" th:utext="${buyerData}"></td>
+		</tr>
+		<tr>
+			<td>Item</td>
+			<td>Quantity</td>
+			<td>Rate</td>
+			<td>Amount</td>
+		</tr>
+		<tr th:each="item:${pdfData.items}">
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.quantity}"></td>
+			<td th:text="${item.rate}"></td>
+			<td th:text="${item.amount}"></td>
+		</tr>
+		<tr>
+			<td colspan="4"></td>
+		</tr>
+	</table>
+</body>
+</html>
